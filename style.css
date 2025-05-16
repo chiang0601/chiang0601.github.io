@@ -1,0 +1,227 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top for scroll */
+    min-height: 100vh;
+    color: #333;
+}
+
+.app-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+header h1 {
+    color: #00796b; /* Teal shade */
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.stepper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+.step-indicator {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #e0e0e0; /* Light grey */
+    color: #757575; /* Darker grey for text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid #e0e0e0;
+}
+
+.step-indicator.active {
+    background-color: #00796b; /* Teal */
+    color: white;
+    border-color: #004d40; /* Darker Teal */
+}
+
+.step-indicator.completed {
+    background-color: #4caf50; /* Green */
+    color: white;
+    border-color: #388e3c; /* Darker Green */
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 3px;
+    background-color: #e0e0e0; /* Light grey */
+    margin: 0 5px;
+}
+
+.step-line.active {
+    background-color: #00796b; /* Teal */
+}
+.step-line.completed {
+     background-color: #4caf50; /* Green */
+}
+
+
+.step-content-wrapper {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.step-content-wrapper.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-card {
+    background-color: #f9f9f9; /* Very light grey for card background */
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.step-card h2 {
+    margin-top: 0;
+    color: #004d40; /* Dark Teal */
+    font-size: 1.6em;
+    border-bottom: 2px solid #b2dfdb; /* Light Teal underline */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.content-area {
+    margin-top: 20px;
+}
+
+.file-input {
+    display: none; /* Hide the default file input */
+}
+
+.file-upload-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #009688; /* Teal */
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.file-upload-label:hover {
+    background-color: #00796b; /* Darker Teal */
+}
+
+.file-upload-label i {
+    margin-right: 8px;
+}
+
+.file-list {
+    margin-top: 15px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.file-list-item {
+    background-color: #e0f2f1; /* Light Teal */
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    border: 1px solid #b2dfdb; /* Lighter Teal border */
+}
+
+.action-button {
+    background-color: #ff9800; /* Orange */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.action-button:hover {
+    background-color: #f57c00; /* Darker Orange */
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+
+.status-message {
+    margin-top: 15px;
+    font-size: 1em;
+    color: #00796b; /* Teal */
+}
+
+#review-area {
+    background-color: #e8f5e9; /* Light Green */
+    padding: 15px;
+    border-radius: 6px;
+    min-height: 100px;
+    border: 1px solid #c8e6c9; /* Lighter Green border */
+    margin-bottom: 20px;
+}
+
+footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.nav-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s, opacity 0.3s;
+    background-color: #26a69a; /* Medium Teal */
+    color: white;
+}
+
+.nav-button:hover:not(:disabled) {
+    background-color: #00897b; /* Darker Medium Teal */
+}
+
+.nav-button:disabled {
+    background-color: #bdbdbd; /* Grey for disabled */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.nav-button i {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+

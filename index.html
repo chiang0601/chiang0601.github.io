@@ -1,0 +1,120 @@
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳足跡自動填表系統</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head><body>
+    <div class="app-container">
+        <header>
+            <h1>碳足跡自動填表系統</h1>
+            <div class="stepper">
+                <div class="step-indicator active" data-step="1">1</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="2">2</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="3">3</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="4">4</div>
+                <div class="step-line"></div>
+                <div class="step-indicator" data-step="5">5</div>
+            </div>
+        </header>
+
+        <main>
+        <div id="step-1" class="step-content-wrapper active"> 
+            <div class="step-card">
+                <h2>步驟 1: 上傳相關產品類別規則文件(PCR)</h2>
+                <p>請上傳相關產品類別規則文件(PCR)，可由此查詢：<br>
+                <a href="https://cfp-calculate.tw/cfpc/Carbon/WebPage/FLPCRDoneList.aspx" target="_blank" rel="noopener">
+                    https://cfp-calculate.tw/cfpc/Carbon/WebPage/FLPCRDoneList.aspx
+                </a>
+                </p>
+                <div class="content-area">
+                <label for="regulation-files" class="file-upload-label">
+                    <i class="fas fa-cloud-upload-alt"></i> 選擇文件
+                </label>
+                <input type="file" id="regulation-files" multiple class="file-input">
+                <div id="regulation-files-list" class="file-list"></div>
+                </div>
+            </div>
+        </div>
+
+
+            <div id="step-2" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 2: 上傳您的產品文件</h2>
+                    <p>請上傳您的產品相關文件。</p>
+                    <div class="content-area">
+                        <label for="product-files" class="file-upload-label">
+                            <i class="fas fa-file-alt"></i> 選擇文件
+                        </label>
+                        <input type="file" id="product-files" class="file-input">
+                        <div id="product-files-list" class="file-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-3" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 3: 計算必要方程式</h2>
+                    <p>系統將根據您提供的文件進行計算。點擊下方按鈕開始計算。</p>
+                    <div class="content-area">
+                        <button id="compute-button" class="action-button"><i class="fas fa-calculator"></i> 開始計算</button>
+                        <div id="computation-status" class="status-message" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="step-4" class="step-content-wrapper">
+            <div class="step-card">
+                <h2>步驟 4: 手動填寫缺空欄位</h2>
+                <p>請手動補齊分析後缺漏的欄位資料，或新增一筆完整資料。</p>
+                    <!-- 這裡是提示區塊 -->
+                <div id="missing-info" style="margin-bottom: 20px;"></div>
+                
+                <div class="content-area">
+                <div id="manual-input-area"></div>
+                <button id="add-new-entry" class="action-button" style="margin-top: 15px; background-color: #4caf50;">
+                    <i class="fas fa-plus"></i> 新增一筆資料
+                </button>
+                <button id="save-manual-input" class="action-button" style="margin-top: 15px;">
+                    <i class="fas fa-save"></i> 儲存填寫內容
+                </button>
+                </div>
+            </div>
+            </div>
+
+
+            <div id="step-5" class="step-content-wrapper">
+                <div class="step-card">
+                    <h2>步驟 5: 審查並匯出下載</h2>
+                    <p>請審查填寫結果，確認無誤後即可匯出下載。</p>
+                    <div class="content-area">
+                        <div id="review-area" style="overflow-x: auto; max-height: 300px; border: 1px solid #ccc; padding: 10px; border-radius: 6px;">
+                            <table id="review-table" style="width: 100%; border-collapse: collapse; font-size: 0.95em;">
+                                <thead></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <button id="export-button" class="action-button"><i class="fas fa-download"></i> 匯出報告</button>
+                        <div id="export-status" class="status-message" style="margin-top: 15px;"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <button id="prev-button" class="nav-button" disabled>
+                <i class="fas fa-arrow-left"></i> 上一步
+            </button>
+            <button id="next-button" class="nav-button">
+                下一步 <i class="fas fa-arrow-right"></i>
+            </button>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
